@@ -110,7 +110,7 @@ const ExperienceComponent = () => {
               <p className={`${getTextColor(exp.color)} font-semibold text-lg leading-tight mb-4 mt-1`}>{exp.company}</p>
               
               {/* Job Title */}
-              <div className="flex items-start justify-between mb-2">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
                 <h3 className="text-lg font-semibold text-gray-900 leading-tight">{exp.position}</h3>
                 <span className="text-sm font-medium text-gray-600 shrink-0">{exp.period}</span>
               </div>
