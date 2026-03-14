@@ -1,12 +1,48 @@
 'use client';
 
-import { ExternalLink, Laptop, MapPin, Heart } from 'lucide-react';
+import { ExternalLink, Laptop, MapPin, Heart, Shield, Activity, Home, Dumbbell } from 'lucide-react';
 import { Project } from '@/types';
 
 const FeaturedWork = () => {
   const projects: Project[] = [
     {
       id: '1',
+      title: 'RESQ-Link',
+      description: 'An emergency response and disaster management system that connects first responders with affected communities. Features real-time incident reporting, resource allocation, and coordination tools for emergency situations.',
+      image: '/featured/RESQLINK.png',
+      tags: ['Emergency Response', 'Disaster Management', 'Real-time Communication', 'Resource Allocation'],
+      type: 'Emergency Management • Web and Mobile App',
+      icon: 'resq-link'
+    },
+    {
+      id: '2',
+      title: 'Grit Digital Performance',
+      description: 'Web Development Agency with a Central API Hub for Events and Registrations of Sports Organizations. Built scalable backend architecture for managing sports events, athlete registrations, and organizational data.',
+      image: '/featured/GRITDP.png',
+      tags: ['Web Development', 'API Design', 'Sports Management', 'Event Registration'],
+      type: 'Web Application • API Hub',
+      icon: 'grit'
+    },
+    {
+      id: '3',
+      title: 'GymCentrix',
+      description: 'A comprehensive gym membership management system with RFID integration for seamless access control. Features IoT-enabled equipment tracking, member management, and real-time attendance monitoring for modern fitness facilities.',
+      image: '/featured/GYMCENTRIX.png',
+      tags: ['IoT', 'RFID Integration', 'Membership Management', 'Fitness Tech'],
+      type: 'IoT • Web Application',
+      icon: 'gymcentrix'
+    },
+    {
+      id: '4',
+      title: 'Tenantra',
+      description: 'A comprehensive property management system for Real Estate Owners to manage their properties and tenants. Features lease tracking, maintenance requests, rent collection, and tenant communication tools.',
+      image: '/featured/TENANTRA.png',
+      tags: ['Real Estate', 'Property Management', 'Tenant Management', 'Lease Tracking'],
+      type: 'Web Application • Property Management',
+      icon: 'tenantra'
+    },
+    {
+      id: '5',
       title: 'SPUP AdServIS',
       description: 'A capstone project for St. Paul University Philippines\' Office of the Vice President for Administrative and General Services. This system streamlines and automates the university\'s administrative service processes, making them paperless and more efficient.',
       image: '/featured/SPUP-ADSERVIS.jpg',
@@ -15,7 +51,7 @@ const FeaturedWork = () => {
       icon: 'laptop'
     },
     {
-      id: '2',
+      id: '6',
       title: 'Geofence Attendance Monitoring',
       description: 'An attendance monitoring system developed for the Department of Information and Communications Technology (DICT). Uses geofencing technology to ensure attendance can only be marked within designated locations, ensuring authenticity and integrity in attendance tracking.',
       image: '/featured/DICT.png',
@@ -24,39 +60,12 @@ const FeaturedWork = () => {
       icon: 'map-pin'
     },
     {
-      id: '3',
+      id: '7',
       title: 'Doctor Smile',
       description: 'A modern dental clinic appointment system designed to streamline scheduling, patient management, and decision-making for dental professionals. The system allows patients to book appointments, dentists to manage availability, and both parties to track records efficiently.',
       image: '/featured/DOCTOR-SMILE.jpg',
       tags: ['Appointment System', 'Patient Management', 'Web Development'],
       type: 'Web Application',
-      icon: 'heart'
-    },
-    {
-      id: '4',
-      title: 'GymCentrix',
-      description: 'A comprehensive gym membership management system with RFID integration for seamless access control. Features IoT-enabled equipment tracking, member management, and real-time attendance monitoring for modern fitness facilities.',
-      image: '/featured/GYMCENTRIX.png',
-      tags: ['IoT', 'RFID Integration', 'Membership Management', 'Fitness Tech'],
-      type: 'IoT • Web Application',
-      icon: 'laptop'
-    },
-    {
-      id: '5',
-      title: 'Grit Digital Performance',
-      description: 'Web Development Agency with a Central API Hub for Events and Registrations of Sports Organizations. Built scalable backend architecture for managing sports events, athlete registrations, and organizational data.',
-      image: '/featured/GRITDP.png',
-      tags: ['Web Development', 'API Design', 'Sports Management', 'Event Registration'],
-      type: 'Web Application • API Hub',
-      icon: 'laptop'
-    },
-    {
-      id: '6',
-      title: 'Tenantra',
-      description: 'A comprehensive property management system for Real Estate Owners to manage their properties and tenants. Features lease tracking, maintenance requests, rent collection, and tenant communication tools.',
-      image: '/featured/TENANTRA.png',
-      tags: ['Real Estate', 'Property Management', 'Tenant Management', 'Lease Tracking'],
-      type: 'Web Application • Property Management',
       icon: 'heart'
     }
   ];
@@ -69,6 +78,14 @@ const FeaturedWork = () => {
         return <MapPin className="h-4 w-4 text-blue-400" />;
       case 'heart':
         return <Heart className="h-4 w-4 text-green-400" />;
+      case 'resq-link':
+        return <Shield className="h-4 w-4 text-[#046649]" />;
+      case 'grit':
+        return <Activity className="h-4 w-4 text-[#e8192c]" />;
+      case 'gymcentrix':
+        return <Dumbbell className="h-4 w-4 text-[#c65a00]" />;
+      case 'tenantra':
+        return <Home className="h-4 w-4 text-[#1f9d7a]" />;
       default:
         return <Laptop className="h-4 w-4 text-gray-400" />;
     }
@@ -76,12 +93,20 @@ const FeaturedWork = () => {
 
   const getIconColor = (iconName: string) => {
     switch (iconName) {
-      case 'laptop':
-        return 'bg-green-500/20';
       case 'map-pin':
         return 'bg-blue-500/20';
       case 'heart':
         return 'bg-green-500/20';
+      case 'laptop':
+        return 'bg-green-500/20';
+      case 'resq-link':
+        return 'bg-[#046649]/20';
+      case 'grit':
+        return 'bg-[#e8192c]/20';
+      case 'gymcentrix':
+        return 'bg-[#c65a00]/20';
+      case 'tenantra':
+        return 'bg-[#1f9d7a]/20';
       default:
         return 'bg-gray-500/20';
     }
@@ -89,12 +114,20 @@ const FeaturedWork = () => {
 
   const getTextColor = (iconName: string) => {
     switch (iconName) {
-      case 'laptop':
-        return 'text-green-400';
       case 'map-pin':
         return 'text-blue-400';
       case 'heart':
         return 'text-green-400';
+      case 'laptop':
+        return 'text-green-400';
+      case 'resq-link':
+        return 'text-[#046649]';
+      case 'grit':
+        return 'text-[#e8192c]';
+      case 'gymcentrix':
+        return 'text-[#c65a00]';
+      case 'tenantra':
+        return 'text-[#1f9d7a]';
       default:
         return 'text-gray-400';
     }
