@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, ChevronDown, Award } from 'lucide-react';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 const Header = () => {
   const [localTime, setLocalTime] = useState('--:--:--');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCertificatesDropdownOpen, setIsCertificatesDropdownOpen] = useState(false);
 
   useSmoothScroll();
 
@@ -26,9 +27,15 @@ const Header = () => {
   }, []);
 
   const handleResumeDownload = () => {
-    // Simulate resume download
+    // Download the actual resume file
+    const link = document.createElement('a');
+    link.href = '/Kenji-Resume-2025.pdf';
+    link.download = 'Kenji-Resume-2025.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     console.log('Resume downloaded successfully!');
-    // In a real scenario, trigger actual file download
   };
 
   const toggleMobileMenu = () => {
@@ -57,7 +64,7 @@ const Header = () => {
             </nav>
 
             <div className="flex items-center gap-3">
-              <button 
+              <button
                 onClick={handleResumeDownload}
                 className="hidden sm:flex items-center gap-2 rounded-full bg-white text-gray-600 px-4 py-2 text-sm font-medium hover:bg-gray-100 hover:scale-105 transition-all duration-300"
               >
@@ -65,7 +72,46 @@ const Header = () => {
                 <span>Resume</span>
               </button>
 
-              <button 
+              {/* Certificates Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsCertificatesDropdownOpen(!isCertificatesDropdownOpen)}
+                  className="hidden sm:flex items-center gap-2 rounded-full bg-white text-gray-600 px-4 py-2 text-sm font-medium hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+                >
+                  <Award className="h-4 w-4" />
+                  <span>Certificates</span>
+                  <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isCertificatesDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {isCertificatesDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    <div className="py-2">
+                      <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">General Certificates</div>
+                      <a href="/certificates/C3SA by CyberWarFare Labs.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">C3SA by CyberWarFare Labs</a>
+                      <a href="/certificates/Cisco Data Analytics Essentials.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Cisco Data Analytics Essentials</a>
+                      <a href="/certificates/Cisco Ethical Hacker.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Cisco Ethical Hacker</a>
+                      <a href="/certificates/Cisco Intro to Cybersecurity.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Cisco Intro to Cybersecurity</a>
+                      <a href="/certificates/Cisco Linux Unhatched.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Cisco Linux Unhatched</a>
+                      <a href="/certificates/GDSC 2022-2023.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">GDSC 2022-2023</a>
+                      <a href="/certificates/Gmetrix ITS Cybersecurity.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Gmetrix ITS Cybersecurity</a>
+                      <a href="/certificates/Hackthenorth.ph Membership.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Hackthenorth.ph Membership</a>
+                      <a href="/certificates/Pearson ITS Cybersecurity Certificate.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Pearson ITS Cybersecurity Certificate</a>
+                      <a href="/certificates/TryHackMe Advent of Cyber 2024.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">TryHackMe Advent of Cyber 2024</a>
+                      <a href="/certificates/TryHackMe Introduction to Cyber Security.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">TryHackMe Introduction to Cyber Security</a>
+                      <a href="/certificates/TryHackMe Pre Security.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">TryHackMe Pre Security</a>
+
+
+                      <div className="px-4 py-2 mt-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">DICT Certificates</div>
+                      <a href="/certificates/DICT Certificates/Digital Defense - Building Strong Cyber Hygiene.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Digital Defense - Building Strong Cyber Hygiene</a>
+                      <a href="/certificates/DICT Certificates/Introduction to Power BI Essentials.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Introduction to Power BI Essentials</a>
+                      <a href="/certificates/DICT Certificates/Orientation on the National Cybersecurity Plan 2023-2028.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Orientation on the National Cybersecurity Plan 2023-2028</a>
+                      <a href="/certificates/DICT Certificates/Spark Advocacy.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors">Spark Advocacy</a>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <button
                 onClick={toggleMobileMenu}
                 className="md:hidden p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
               >
@@ -82,7 +128,7 @@ const Header = () => {
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <span className="text-lg font-semibold text-white">Menu</span>
-              <button 
+              <button
                 onClick={toggleMobileMenu}
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
               >
@@ -95,7 +141,7 @@ const Header = () => {
               <a href="#contact" className="text-lg font-medium text-gray-300 hover:text-white transition-colors duration-300 nav-link" onClick={toggleMobileMenu}>Contact</a>
             </nav>
             <div className="p-6 mt-auto">
-              <button 
+              <button
                 onClick={() => {
                   handleResumeDownload();
                   toggleMobileMenu();

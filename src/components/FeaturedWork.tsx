@@ -25,7 +25,7 @@ const FeaturedWork = () => {
     },
     {
       id: '3',
-      title: 'GymCentrix',
+      title: 'Gymcentrix',
       description: 'A comprehensive gym membership management system with RFID integration for seamless access control. Features IoT-enabled equipment tracking, member management, and real-time attendance monitoring for modern fitness facilities.',
       image: '/featured/GYMCENTRIX.png',
       tags: ['IoT', 'RFID Integration', 'Membership Management', 'Fitness Tech'],
