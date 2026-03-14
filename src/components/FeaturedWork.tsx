@@ -9,7 +9,7 @@ const FeaturedWork = () => {
       id: '1',
       title: 'SPUP AdServIS',
       description: 'A capstone project for St. Paul University Philippines\' Office of the Vice President for Administrative and General Services. This system streamlines and automates the university\'s administrative service processes, making them paperless and more efficient.',
-      image: 'https://i.ibb.co/B26yKqCQ/SPUP-Ad-Serv-IS-Mockup.jpg',
+      image: '/featured/SPUP-ADSERVIS.jpg',
       tags: ['Web Development', 'Process Automation', 'System Design'],
       type: 'Mobile Responsive • Web Application',
       icon: 'laptop'
@@ -18,7 +18,7 @@ const FeaturedWork = () => {
       id: '2',
       title: 'Geofence Attendance Monitoring',
       description: 'An attendance monitoring system developed for the Department of Information and Communications Technology (DICT). Uses geofencing technology to ensure attendance can only be marked within designated locations, ensuring authenticity and integrity in attendance tracking.',
-      image: 'https://i.ibb.co/GQJhg8dX/geofence-attendance.png',
+      image: '/featured/DICT.png',
       tags: ['Mobile Development', 'Geofencing', 'Location Services'],
       type: 'Mobile Responsive • Web Application',
       icon: 'map-pin'
@@ -27,9 +27,36 @@ const FeaturedWork = () => {
       id: '3',
       title: 'Doctor Smile',
       description: 'A modern dental clinic appointment system designed to streamline scheduling, patient management, and decision-making for dental professionals. The system allows patients to book appointments, dentists to manage availability, and both parties to track records efficiently.',
-      image: 'https://i.ibb.co/d4yMLBXH/doctor-smile.png',
+      image: '/featured/DOCTOR-SMILE.jpg',
       tags: ['Appointment System', 'Patient Management', 'Web Development'],
       type: 'Web Application',
+      icon: 'heart'
+    },
+    {
+      id: '4',
+      title: 'GymCentrix',
+      description: 'A comprehensive gym membership management system with RFID integration for seamless access control. Features IoT-enabled equipment tracking, member management, and real-time attendance monitoring for modern fitness facilities.',
+      image: '/featured/GYMCENTRIX.png',
+      tags: ['IoT', 'RFID Integration', 'Membership Management', 'Fitness Tech'],
+      type: 'IoT • Web Application',
+      icon: 'laptop'
+    },
+    {
+      id: '5',
+      title: 'Grit Digital Performance',
+      description: 'Web Development Agency with a Central API Hub for Events and Registrations of Sports Organizations. Built scalable backend architecture for managing sports events, athlete registrations, and organizational data.',
+      image: '/featured/GRITDP.png',
+      tags: ['Web Development', 'API Design', 'Sports Management', 'Event Registration'],
+      type: 'Web Application • API Hub',
+      icon: 'laptop'
+    },
+    {
+      id: '6',
+      title: 'Tenantra',
+      description: 'A comprehensive property management system for Real Estate Owners to manage their properties and tenants. Features lease tracking, maintenance requests, rent collection, and tenant communication tools.',
+      image: '/featured/TENANTRA.png',
+      tags: ['Real Estate', 'Property Management', 'Tenant Management', 'Lease Tracking'],
+      type: 'Web Application • Property Management',
       icon: 'heart'
     }
   ];
@@ -110,21 +137,13 @@ const FeaturedWork = () => {
                   </span>
                 ))}
               </div>
-
-              <button 
-                onClick={() => handleCaseStudyClick(project.title)}
-                className={`group inline-flex items-center gap-2 ${getTextColor(project.icon)} font-medium hover:text-blue-300 transition-colors duration-300`}
-              >
-                <span>View Case Study</span>
-                <ExternalLink className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
             </div>
 
             <div className={`relative group ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
               <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:border-white/20 transition-all duration-300">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-80 group-hover:scale-105 transition-transform duration-500 object-cover"
                 />
               </div>

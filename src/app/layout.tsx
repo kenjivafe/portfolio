@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   keywords: ["Software Developer", "Portfolio", "Web Development", "Mobile Development", "UI/UX", "React", "Next.js", "TypeScript"],
   authors: [{ name: "Kenji Von Ashley" }],
   creator: "Kenji Von Ashley",
+  icons: {
+    icon: "/logos/Northernware-logo.png",
+    shortcut: "/logos/Northernware-logo.png",
+    apple: "/logos/Northernware-logo.png",
+  },
   openGraph: {
     title: "Kenji Von Ashley - Software Developer",
     description: "Software Developer focused on creating intuitive, accessible, and delightful user experiences for consumer tech products.",

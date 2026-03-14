@@ -33,6 +33,16 @@ const ExperienceComponent = () => {
       description: 'Founded and lead my very own software development agency, overseeing project development, client relations, and technical architecture decisions.',
       tags: ['Software Development', 'Leadership', 'Project Management', 'Client Relations'],
       color: 'black'
+    },
+    {
+      id: '4',
+      company: 'Grit Digital Performance',
+      position: 'Backend and API Developer',
+      period: 'February 2026 - Present',
+      duration: '6 months',
+      description: 'Developed and maintain an API Central Hub featuring Organizations management, Events scheduling, and Registrations system for a custom website. Built scalable backend architecture with RESTful APIs and real-time data synchronization.',
+      tags: ['Backend Development', 'API Design', 'Performance Optimization', 'Enterprise Solutions'],
+      color: 'grit'
     }
   ];
 
@@ -65,6 +75,8 @@ const ExperienceComponent = () => {
         return 'text-purple-400';
       case 'indigo':
         return 'text-indigo-400';
+      case 'grit':
+        return 'text-[#da1d3a]';
       default:
         return 'text-gray-400';
     }
@@ -83,14 +95,15 @@ const ExperienceComponent = () => {
             {/* Left Column - Logo and Line */}
             <div className="relative w-12">
               {/* Company Logo */}
-              <img 
-                src={`/logos/${exp.company === 'DICT Region II' ? 'DICT-logo.png' : 
-                       exp.company === 'Hackthenorth.ph' ? 'HTN-logo.png' : 
-                       'Northernware-logo.png'}`}
+              <img
+                src={`/logos/${exp.company === 'DICT Region II' ? 'DICT-logo.png' :
+                  exp.company === 'Hackthenorth.ph' ? 'HTN-logo.png' :
+                    exp.company === 'Grit Digital Performance' ? 'Grit-logo.png' :
+                      'Northernware-logo.png'}`}
                 alt={`${exp.company} logo`}
                 className="h-8 w-8 rounded-xl shadow-sm object-cover"
               />
-              
+
               {/* Curved Line SVG */}
               <div className="absolute top-8 left-4">
                 <svg width="30" height="50" className="overflow-visible">
@@ -108,13 +121,13 @@ const ExperienceComponent = () => {
             <div className="flex-1">
               {/* Company Name */}
               <p className={`${getTextColor(exp.color)} font-semibold text-lg leading-tight mb-4 mt-1`}>{exp.company}</p>
-              
+
               {/* Job Title */}
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
                 <h3 className="text-lg font-semibold text-gray-900 leading-tight">{exp.position}</h3>
                 <span className="text-sm font-medium text-gray-600 shrink-0">{exp.period}</span>
               </div>
-              
+
               {/* Job Description */}
               <p className="text-gray-600 text-sm leading-relaxed">
                 {exp.description}
